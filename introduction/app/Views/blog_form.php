@@ -8,6 +8,10 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+=======
+    <?= base_url(); ?>
+>>>>>>> 02-Routes
     <form action="/admin/blog/new" method="post">
         <div>
             <label for="title">Title</label>
