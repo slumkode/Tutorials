@@ -1,7 +1,7 @@
-#Tutorials
+# Tutorials - Introduction
 Codeigniter 4 tutorials by Alex Lancer (youtube)
 
-###Environment Setup
+### Environment Setup
 - Linux (Ubuntu 20)
 - php 7.4
 - apache
@@ -9,11 +9,11 @@ Codeigniter 4 tutorials by Alex Lancer (youtube)
 - Codeigniter 4
 
 
-###Tools
--**Visual Studio Code**
+### Tools
+- **Visual Studio Code**
     1. **SFTP** -by liximomo
     2. **Auto-save on window change** - by Yuri
--**Project Versioning**
+- **Project Versioning**
     1. Github
     2. Trello
     3. Gitkraken
