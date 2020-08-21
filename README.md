@@ -12,7 +12,7 @@ Codeigniter 4 tutorials by Alex Lancer (youtube)
 ### Tools
 - **Visual Studio Code**
     1. **SFTP** -by liximomo
-    2. **Auto-save on window change** - by Yuri
+    2. **Save Typing** - by Michael Betancourt
 - **Project Versioning**
     1. Github
     2. Trello
