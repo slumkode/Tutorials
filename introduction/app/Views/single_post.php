@@ -1,1 +1,1 @@
-<h1>Blog - Single post Page</h1>
+<h1><?= $title ?></h1>
