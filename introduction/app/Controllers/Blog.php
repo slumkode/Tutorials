@@ -54,7 +54,7 @@ class Blog extends BaseController
 
     }
 
-    function new () {
+    public function new () {
         $data = [
             'meta_title' => 'New Post',
             'title' => 'Create new post',
