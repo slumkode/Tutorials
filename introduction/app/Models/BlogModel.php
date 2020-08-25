@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use CodeIgniter\Model;
+
 date_default_timezone_set('Africa/Nairobi');
 
 class BlogModel extends Model
@@ -21,4 +22,24 @@ class BlogModel extends Model
     // protected $validationRules    = [];
     // protected $validationMessages = [];
     // protected $skipValidation     = false;
+
+
+    protected $beforeInsert = ['checkName'];
+    /**
+     * Events that CI4 uses
+     * beforeInsert
+     * afterInsert
+     * beforeUpdate
+     * afterUpdate
+     * afterFind
+     * afterDelete
+     */
+
+    public function checkName(array $data)
+    {
+        $newTitle = $data['data']['post_title'] . ' Extra Features';
+        $data['data']['post_title'] = $newTitle;
+
+        return $data;
+    }
 }
