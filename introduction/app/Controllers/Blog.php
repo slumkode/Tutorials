@@ -15,9 +15,7 @@ class Blog extends BaseController{
 
         $data['posts'] = $post;
         
-        echo view('templates/header', $data);
-        echo view('blog');
-        echo view('templates/footer');
+        return view('blog', $data);
 
     }
     public function post()
@@ -26,9 +24,7 @@ class Blog extends BaseController{
             'meta_title'    => 'Codeingiter 4 Blog',
             'title'         => 'This is a Single Blog Post Page',
         ];
-        echo view('templates/header', $data);
-        echo view('single_post');
-        echo view('templates/footer');
+        return view('single_post', $data);
 
     }
 }
