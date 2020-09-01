@@ -25,17 +25,27 @@ class CustomModel
 
     public function where()
     {
-        // return $this->db->table('posts')
-        //                 ->where(['post_id >=' => 90])
-        //                 ->get()
-        //                 ->getRow();
         return $this->db->table('posts')
                         ->where(['post_id >' => 90])
                         ->where(['post_id <' => 95])
-                        ->orderBy('post_id','ASC ')
+                        ->orderBy('post_id', 'ASC ')
                         ->get()
                         ->getResult();
     }
+
+
+    public function join()
+    {
+        return $this->db->table('posts')
+                    ->where('post_id >', 90)
+                    ->where('post_id <', 95)
+                    // ->join('users', 'posts.post_author_id = users.user_id','left')
+                    // ->join('users', 'posts.post_author_id = users.user_id','right')
+                    ->join('users', 'posts.post_author_id = users.user_id','inner')
+                    ->get()
+                    ->getResult();
+    }
+
 
     public function getPosts()
     {

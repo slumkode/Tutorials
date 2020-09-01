@@ -26,4 +26,15 @@ class Posts extends BaseController
         print_r($result);
         echo '</pre>';
     }
+
+    public function join()
+    {
+        $db     = db_connect();
+        $model  = new CustomModel($db);
+        $result = $model->join();
+
+        echo '<pre>';
+        print_r($result);
+        echo '</pre>';
+    }
 }
