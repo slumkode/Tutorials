@@ -16,19 +16,24 @@ class CustomModel
     /**
      * Gets all the post from db
      */
-    function all(){
+    public function all()
+    {
         // SELECT * FROM posts;
 
         return $this->db->table('posts')->get()->getResult();
-
     }
 
-    function where()
+    public function where()
     {
+        // return $this->db->table('posts')
+        //                 ->where(['post_id >=' => 90])
+        //                 ->get()
+        //                 ->getRow();
         return $this->db->table('posts')
-                        ->where(['post_id' => 100])
+                        ->where(['post_id >' => 90])
+                        ->where(['post_id <' => 95])
                         ->get()
-                        ->getRow();
+                        ->getResult();
     }
 
     public function getPosts()
