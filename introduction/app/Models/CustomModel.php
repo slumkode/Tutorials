@@ -32,6 +32,7 @@ class CustomModel
         return $this->db->table('posts')
                         ->where(['post_id >' => 90])
                         ->where(['post_id <' => 95])
+                        ->orderBy('post_id','ASC ')
                         ->get()
                         ->getResult();
     }
