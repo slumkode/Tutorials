@@ -11,8 +11,8 @@ Codeigniter 4 tutorials by Alex Lancer (youtube)
 
 ### Tools
 - **Visual Studio Code**
-    1. **SFTP** -by Michael Betancourt
-    2. **Save Typing** - by Yuri
+    1. **SFTP** -by liximomo
+    2. **Save Typing** - by Michael Betancourt
 - **Project Versioning**
     1. Github
     2. Trello
