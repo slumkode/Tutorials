@@ -58,6 +58,20 @@ class CustomModel
                     ->getResult();
     }
 
+    public function grouping()
+    {
+
+        // select * from posts where (post_id = 25 and post_date < 1990-01-01 00:00:00) or post_author_id = 10
+        return $this->db->table('posts')
+                        ->groupStart()
+                            ->where(['post_id' => '25', 'post_created_at <' => '1990-01-01 00:00:00']) //(post_id = 25 and post_date < 1990-01-01 00:00:00)
+                        ->groupEnd()
+                        ->orWhere('post_author_id', '10') // or post_author_id = 10
+                        ->join('users', 'posts.post_author_id = users.user_id')
+                        ->get()
+                        ->getResult();
+    }
+
     public function getPosts()
     {
         $builder = $this->db->table('posts');

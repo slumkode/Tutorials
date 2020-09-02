@@ -48,4 +48,15 @@ class Posts extends BaseController
         print_r($result);
         echo '</pre>';
     }
+
+    public function grouping()
+    {
+        $db     = db_connect();
+        $model  = new CustomModel($db);
+        $result = $model->grouping();
+
+        echo '<pre>';
+        print_r($result);
+        echo '</pre>';
+    }
 }
