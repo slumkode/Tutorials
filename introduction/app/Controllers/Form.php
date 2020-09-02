@@ -52,7 +52,7 @@ class Form extends BaseController
 
                 if($file->isValid() && !$file->hasMoved())
                 {
-                    $file->move('./uploads/images');
+                    $file->move('./uploads/images','testName.'.$file->getExtension());
                 }
                 return redirect()->to('/form/success');
                 // The do database inserion
