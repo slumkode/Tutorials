@@ -35,7 +35,8 @@ class Form extends BaseController
 
                     // 'rules'     => 'uploaded[theFile]|max_size[theFile, 500]|ext_in[theFile,png]',
                     // max_dims => max dimensions ,width by height
-                    'rules'     => 'uploaded[theFile]|max_size[theFile, 1024]|is_image[theFile]|max_dims[theFile,100,50]',
+                    // 'rules'     => 'uploaded[theFile]|max_size[theFile, 1024]|is_image[theFile]|max_dims[theFile,100,50]',
+                    'rules'     => 'uploaded[theFile]|max_size[theFile, 1024]|is_image[theFile]',
                     'label'     => 'The File',
                     'errors'    =>[
                         'uploaded'  => 'Please choose a file to upload',
@@ -49,8 +50,10 @@ class Form extends BaseController
             if ($this->validate($rules)) {
                 $file = $this->request->getFile('theFile');
 
-                echo $file->getName();
-                exit();
+                if($file->isValid() && !$file->hasMoved())
+                {
+                    $file->move('./uploads/images');
+                }
                 return redirect()->to('/form/success');
                 // The do database inserion
                 // Login user
