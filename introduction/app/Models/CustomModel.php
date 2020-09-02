@@ -83,6 +83,7 @@ class CustomModel
                         // ->WhereIn('user_email', $emails) 
                         ->orWhereIn('user_email', $emails)
                         ->join('users', 'posts.post_author_id = users.user_id')
+                        ->limit(1)
                         ->get()
                         ->getResult();
     }
