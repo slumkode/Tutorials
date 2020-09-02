@@ -28,15 +28,16 @@
                 <legend>Form Validation</legend>
             </div>
             <?php if (isset($validation)):?>
-                <div class="text-danger">
-                    <?= $validation->listErrors(); ?>
-                </div>
+            <div class="text-danger">
+                <?= $validation->listErrors(); ?>
+            </div>
             <?php endif; ?>
             <!-- Email Input -->
             <div class="form-group">
                 <label for="email" class="col-sm-2">Email</label>
                 <div class="col-sm-10">
-                    <input type="text" name="email" id="email" class="form-control" value="<?= set_value('email') ?>" title="Email">
+                    <input type="text" name="email" id="email" class="form-control" value="<?= set_value('email') ?>"
+                        title="Email">
                 </div>
 
             </div>
@@ -60,11 +61,24 @@
                         <option value="">-- Select One --</option>
                         <?php foreach ($categories as $cat): ?>
                         <option <?= set_select('category', $cat, true) ?> value="<?= $cat ?>"><?= $cat ?></option>
+                        <!-- <option <?= set_select('category', $cat) ?> value="<?= $cat ?>"><?= $cat ?></option> -->
                         <?php endforeach; ?>
                     </select>
                 </div>
             </div>
             <!-- End Category Input -->
+
+            <!-- Date -->
+            <div class="form-group">
+                <label for="date" class="col-sm-2">Date</label>
+                <div class="col-sm-10">
+                    <input type="date" name="date" id="date" class="form-control" value="<?= set_value('date') ?>">
+                </div>
+            </div>
+
+            <pre>
+                <?= print_r($_POST) ?>
+            </pre>
 
 
             <!-- Submit button -->
