@@ -41,11 +41,22 @@ class CustomModel
                     ->where('post_id <', 95)
                     // ->join('users', 'posts.post_author_id = users.user_id','left')
                     // ->join('users', 'posts.post_author_id = users.user_id','right')
-                    ->join('users', 'posts.post_author_id = users.user_id','inner')
+                    ->join('users', 'posts.post_author_id = users.user_id', 'inner')
                     ->get()
                     ->getResult();
     }
 
+    public function like()
+    {
+        return $this->db->table('posts')
+                    // ->like('post_title', 'Optio') // %string%
+                    // ->like('post_title', 'Optio', 'both') // %string%
+                    // ->like('post_title', 'Optio', 'before') // %string
+                    ->like('post_title', 'Optio', 'after') // string%
+                    ->join('users', 'posts.post_author_id = users.user_id')
+                    ->get()
+                    ->getResult();
+    }
 
     public function getPosts()
     {
