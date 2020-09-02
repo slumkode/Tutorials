@@ -23,7 +23,7 @@
     <div class="container" style="margin-top: 20px;">
 
 
-        <form action="" method="POST" class="form-horizontal" role="form">
+        <form action="" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
             <div class="form-group">
                 <legend>Form Validation</legend>
             </div>
@@ -75,6 +75,17 @@
                     <input type="date" name="date" id="date" class="form-control" value="<?= set_value('date') ?>">
                 </div>
             </div>
+            <!-- End Date -->
+
+            <!-- File -->
+            <div class="form-group">
+                <label for="theFile" class="col-sm-2">Upload File</label>
+                <div class="col-sm-10">
+                    <input type="file" name="theFile" id="theFile" class="form-control" value="">
+                </div>
+
+            </div>
+            <!-- End File -->
 
             <pre>
                 <?= print_r($_POST) ?>
