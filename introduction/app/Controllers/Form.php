@@ -30,13 +30,14 @@ class Form extends BaseController
                 'theFile'   => [
                     /**
                      *  max_size rule is in kbs
-                     *  ext_in[theFile,png] => no space 
+                     *  ext_in[theFile,png] => no space
                      *  */
 
                     // 'rules'     => 'uploaded[theFile]|max_size[theFile, 500]|ext_in[theFile,png]',
                     // max_dims => max dimensions ,width by height
                     // 'rules'     => 'uploaded[theFile]|max_size[theFile, 1024]|is_image[theFile]|max_dims[theFile,100,50]',
-                    'rules'     => 'uploaded[theFile]|max_size[theFile, 1024]|is_image[theFile]',
+
+                    'rules'     => 'uploaded[theFile.0]|max_size[theFile, 1024]|is_image[theFile]',
                     'label'     => 'The File',
                     'errors'    =>[
                         'uploaded'  => 'Please choose a file to upload',
@@ -48,13 +49,16 @@ class Form extends BaseController
                 ]
             ];
             if ($this->validate($rules)) {
-                $file = $this->request->getFile('theFile');
-                if($file->isValid() && !$file->hasMoved())
-                {
-                    $file->move('./uploads/images', $file->getRandomName());
+                $files = $this->request->getFiles();
+
+                foreach ($files['theFile'] as $file) {
+                    if ($file->isValid() && !$file->hasMoved()) {
+                        $file->move('./uploads/images/multiple', $file->getRandomName());
+                    }
                 }
+                
                 return redirect()->to('/form/success');
-                // The do database inserion
+            // The do database inserion
                 // Login user
             } else {
                 $data['validation'] = $this->validator;
