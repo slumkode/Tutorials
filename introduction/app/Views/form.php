@@ -81,7 +81,7 @@
             <div class="form-group">
                 <label for="theFile" class="col-sm-2">Upload File</label>
                 <div class="col-sm-10">
-                    <input type="file" name="theFile" id="theFile" class="form-control" value="">
+                    <input type="file" name="theFile" id="theFile" class="form-control">
                 </div>
 
             </div>

@@ -49,10 +49,9 @@ class Form extends BaseController
             ];
             if ($this->validate($rules)) {
                 $file = $this->request->getFile('theFile');
-
                 if($file->isValid() && !$file->hasMoved())
                 {
-                    $file->move('./uploads/images','testName.'.$file->getExtension());
+                    $file->move('./uploads/images', $file->getRandomName());
                 }
                 return redirect()->to('/form/success');
                 // The do database inserion
