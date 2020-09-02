@@ -59,4 +59,15 @@ class Posts extends BaseController
         print_r($result);
         echo '</pre>';
     }
+
+    public function wherein()
+    {
+        $db     = db_connect();
+        $model  = new CustomModel($db);
+        $result = $model->wherein();
+
+        echo '<pre>';
+        print_r($result);
+        echo '</pre>';
+    }
 }
